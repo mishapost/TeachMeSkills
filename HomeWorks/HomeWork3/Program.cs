@@ -12,7 +12,7 @@ namespace HomeWork3
         {
             try
             {
-                Console.WriteLine("Введите полный путь к файлу, откуда надо считать текст (Есть файл по умолчанию: test.txt)");
+                Console.WriteLine("Введите полный путь к файлу, откуда надо считать текст");
                 var txt = new WordProcessing(ReadFromFile(Console.ReadLine()));
                 GenerateMenu(txt);
             }
