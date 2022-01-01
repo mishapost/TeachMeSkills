@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace HomeWork2
+namespace HomeWork3
 {
     class Program
     {

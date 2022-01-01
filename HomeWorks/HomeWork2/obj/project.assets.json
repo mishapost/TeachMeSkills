@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\TeachMeSkills\\HomeWorks\\HomeWork2\\HomeWork2.csproj",
-      "projectName": "HomeWork2",
-      "projectPath": "F:\\TeachMeSkills\\HomeWorks\\HomeWork2\\HomeWork2.csproj",
+      "projectUniqueName": "F:\\TeachMeSkills\\HomeWorks\\HomeWork2\\HomeWork3.csproj",
+      "projectName": "HomeWork3",
+      "projectPath": "F:\\TeachMeSkills\\HomeWorks\\HomeWork2\\HomeWork3.csproj",
       "packagesPath": "C:\\Users\\mtana\\.nuget\\packages\\",
       "outputPath": "F:\\TeachMeSkills\\HomeWorks\\HomeWork2\\obj\\",
       "projectStyle": "PackageReference",

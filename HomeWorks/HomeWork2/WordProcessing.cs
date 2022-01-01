@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace HomeWork2
+namespace HomeWork3
 {
     public class WordProcessing
     {
