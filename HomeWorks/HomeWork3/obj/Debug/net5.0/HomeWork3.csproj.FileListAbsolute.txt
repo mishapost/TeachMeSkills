@@ -13,3 +13,4 @@ F:\TeachMeSkills\HomeWorks\HomeWork3\obj\Debug\net5.0\HomeWork3.dll
 F:\TeachMeSkills\HomeWorks\HomeWork3\obj\Debug\net5.0\ref\HomeWork3.dll
 F:\TeachMeSkills\HomeWorks\HomeWork3\obj\Debug\net5.0\HomeWork3.pdb
 F:\TeachMeSkills\HomeWorks\HomeWork3\obj\Debug\net5.0\HomeWork3.genruntimeconfig.cache
+F:\TeachMeSkills\HomeWorks\HomeWork3\obj\Debug\net5.0\HomeWork3.csproj.AssemblyReference.cache

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.Design;
+using System.Data;
 
 namespace HomeWork2
 {
@@ -70,14 +72,10 @@ namespace HomeWork2
             return matrix;
         }
 
-        /// <summary>
-        /// Печать матрицы на консоль
-        /// </summary>
+        /// <summary> Печать матрицы на консоль </summary>
         /// <param name="matrix"></param>
         private static void WriteMatrix(int[,] matrix)
         {
-            Console.WriteLine("Введенная матрица:");
-
             for (var i = 0; i < matrix.GetUpperBound(0) + 1; i++)
             {
                 for (var j = 0; j < matrix.GetUpperBound(1) + 1; j++)
@@ -87,6 +85,7 @@ namespace HomeWork2
                 Console.WriteLine();
             }
         }
+
 
         private static void GenerateMenu(int[,] matrix)
         {
@@ -108,13 +107,85 @@ namespace HomeWork2
                 switch (menuItem)
                 {
                     case "1":
+                        Console.WriteLine("Исходная матрица:");
                         WriteMatrix(matrix);
                         break;
                     case "2":
+                        var countPositive = 0;
+                        var countNegative = 0;
+                        foreach(var item in matrix)
+                        {
+                            if (item >= 0) {countPositive++;} else {countNegative++;}
+                        }
+                        Console.WriteLine($"В введенной матрице положительных элементов {countPositive} шт., отрицательных {countNegative} шт.");
                         break;
                     case "3":
+                        var rows = matrix.GetUpperBound(0) + 1;
+                        var columns = matrix.GetUpperBound(1) + 1;
+
+                        var matrixSortByAsc = new int[rows, columns];
+                        var matrixSortByDesc = new int[rows, columns];
+
+                        for (var i = 0; i < rows; i++)
+                        {
+                            var column = matrix.GetUpperBound(1) + 1;
+                            var newRowArray = new int[column];
+                            for (var j = 0; j < column; j++)
+                            {
+                                newRowArray[j] = matrix[i, j];
+                            }
+
+                            newRowArray = SortingArray(newRowArray);
+                            // сортирую по возрастанию
+                            for (var j = 0; j < column; j++)
+                            {
+                                matrixSortByAsc[i,j] = newRowArray[j];
+                            }
+
+                            // сортирую по убыванию
+                            var counter = column;
+                            for (var j = 0; j < column; j++)
+                            {
+                                if (counter > 0) { matrixSortByDesc[i, j] = newRowArray[counter - 1]; }
+                                counter--;
+                            }
+                        }
+
+                        Console.WriteLine("Исходная матрица:");
+                        WriteMatrix(matrix);
+                        Console.WriteLine();
+                        Console.WriteLine("Матрица, отсортированная построчно по возрастанию:");
+                        WriteMatrix(matrixSortByAsc);
+                        Console.WriteLine();
+                        Console.WriteLine("Матрица, отсортированная построчно по убыванию:");
+                        WriteMatrix(matrixSortByDesc);
+
                         break;
                     case "4":
+                        // Не понял толком условие задачи. Делаю запись наоборот 1 2 3 => 3 2 1
+                        var newMatrix = new int[matrix.GetUpperBound(0) + 1, matrix.GetUpperBound(1) + 1];
+                        for (var i = 0; i < matrix.GetUpperBound(0) + 1; i++)
+                        {
+                            var column = matrix.GetUpperBound(1) + 1;
+                            var newRowArray = new int[column];
+                            for (var j = 0; j < column; j++)
+                            {
+                                newRowArray[j] = matrix[i, j];
+                            }
+                            
+                            // в новую матрицу ложу задом наперед
+                            var counter = column;
+                            for (var j = 0; j < column; j++)
+                            {
+                                if (counter > 0) { newMatrix[i, j] = newRowArray[counter - 1]; }
+                                counter--;
+                            }
+                        }
+                        Console.WriteLine("Исходная матрица:");
+                        WriteMatrix(matrix);
+                        Console.WriteLine();
+                        Console.WriteLine("Матрица с инверсией элементов построчно:");
+                        WriteMatrix(newMatrix);
                         break;
                     case "0":
                         Console.WriteLine("Bye,Bye, Bye...");
@@ -132,6 +203,17 @@ namespace HomeWork2
 
 
         }
-
+        
+        private static int[] SortingArray(int[] arr)
+        {
+            for (var i = 1; i < arr.Length; i++)
+            {
+                for (var j = i; j >0 && arr[j-1]>arr[j]; j--)
+                {
+                    (arr[j - 1], arr[j]) = (arr[j], arr[j - 1]);
+                }
+            }
+            return arr;
+        }
     }
 }
