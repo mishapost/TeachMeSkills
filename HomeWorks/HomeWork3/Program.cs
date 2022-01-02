@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace HomeWork3
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             try
             {
